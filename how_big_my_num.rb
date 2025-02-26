@@ -1,15 +1,18 @@
 letters = ("a".."z")
 cap_letters = ("A".."Z")
+spec_characters = ("!".."?")
 
 print "Please enter a number between 0 - 100 : "
 num = gets.chomp
 
-if num.chars.all? {|char| letters.include? char }
+if num.chars.all? { |char| letters.include? char }
   puts "You can't enter letters, please enter a number between 0 - 100!"
   exit
-elsif
-  num.chars.all? {|char| cap_letters.include? char }
+elsif num.chars.all? { |char| cap_letters.include? char }
   puts "You can't enter letters, please enter a number between 0 - 100!"
+  exit
+elsif num.chars.all? { |char| spec_characters.include? char}
+  puts "You can't enter symbols, please enter a number between 0 - 100!"
   exit
 else
   num = num.to_i
